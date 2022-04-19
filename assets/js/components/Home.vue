@@ -4,11 +4,12 @@
         <h1 class ="link-primary">CONNEXION</h1>
     </div>
     <div class="container mt-5">
-        <form method="post" action="/connexion">
+        <form method="POST" action="/connexion">
           <div class="mb-3">
             <label for="inputUser" class="form-label">Nom d'utilisateur*</label>
             <input
               type="inputUser"
+              name="inputUser"
               class="form-control"
               id="inputUser"
               required
@@ -20,6 +21,7 @@
               type="password"
               class="form-control"
               id="inputPassword"
+              name="inputPassword"
               required
             />
           </div>
@@ -32,6 +34,12 @@
 <script>
 export default {
   name: "home",
+  data() {
+    return {
+    };
+  },
+  methods: {
+  },
 };
 </script>
 

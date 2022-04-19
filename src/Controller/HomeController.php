@@ -49,12 +49,43 @@ class HomeController extends AbstractController
                     $session->set('cp',$cp);
                     $session->set('ville',$ville);
                     $session->set('dateEmbauche',$dateEmbauche);
-            }
-        }
+                    
+                    $response = new Response();
+                    $response->setContent(json_encode(['Id'=> $id,
+                                                        'Name' => $name,
+                                                        'LastName' => $lastname,
+                                                        'Level' => $level,
+                                                        'roles' => $session->get('roles'),
+                                                        'margin' => $session->get('margin'),
+                                                        'email' => $session->get('email'),
+                                                        ]));
+
+
+                    $response->headers->set('Content-Type', 'application/json');
+
+                    return $response;
+                }
+                else
+                {
+                    $response = new Response();
+
+                    return $response->setStatusCode(500);
+                }
+        }   
         catch (\Exception $err)
         {
             $response = new Response();
             return $response->setStatusCode(500);
+        }
+    }
+     /**
+     * @Route("/deconnexion", name="deconnexion")
+     */
+    public function deconnexion(SessionInterface $session){
+
+        if($session->get('id' != null))
+        {
+            $session->clear();
         }
     }
 }
