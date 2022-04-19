@@ -1,12 +1,12 @@
 <template>
    <div>
-       <p>This is an example of a new components in VueJs</p>
+       <p>Connexion</p>
    </div>
 </template>
 
 <script>
    export default {
-       name: "Connexion"
+       name: "home"
    }
 </script>
 
