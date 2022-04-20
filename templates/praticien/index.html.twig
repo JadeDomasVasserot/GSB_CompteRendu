@@ -3,8 +3,8 @@
 {% block title %}Praticien index{% endblock %}
 
 {% block body %}
-    <h1>Praticien index</h1>
-
+    <sommaire></sommaire>
+    <h1 style="text-align:center">Tableau de la liste des praticiens</h1>
     <table class="table">
         <thead>
             <tr>
@@ -12,12 +12,12 @@
                 <th>Nom</th>
                 <th>Prenom</th>
                 <th>Adresse</th>
-                <th>Cp</th>
+                <th>Code Postal</th>
                 <th>Ville</th>
-                <th>Dateembauche</th>
-                <th>Coefnotoriete</th>
-                <th>Lieuexercice</th>
-                <th>actions</th>
+                <th>Date d'embauche</th>
+                <th>Coefficient de notoriété</th>
+                <th>Lieu d'exercice</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -39,11 +39,11 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="10">no records found</td>
+                <td colspan="10">Pas de praticien</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_praticien_new') }}">Create new</a>
+    <a href="{{ path('app_praticien_new') }}">Nouveau praticien</a>
 {% endblock %}

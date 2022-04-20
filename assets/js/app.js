@@ -5,6 +5,7 @@ import Sommaire from './components/Sommaire.vue'
 import Erreur404 from './components/Erreur404.vue'
 import Cr from './components/Cr.vue'
 
+
 /**
 * Create a fresh Vue Application instance
 */

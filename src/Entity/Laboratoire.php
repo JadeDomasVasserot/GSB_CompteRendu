@@ -44,6 +44,9 @@ class Laboratoire
 
         return $this;
     }
+    public function __toString() {
+        return $this->labolib;
+    }
 
 
 }

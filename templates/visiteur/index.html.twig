@@ -3,21 +3,19 @@
 {% block title %}Visiteur index{% endblock %}
 
 {% block body %}
-    <h1>Visiteur index</h1>
-
+    <sommaire></sommaire>
+    <h1 style="text-align:center">Tableau liste des visiteurs</h1>
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
                 <th>Prenom</th>
-                <th>Login</th>
-                <th>Mdp</th>
                 <th>Adresse</th>
-                <th>Cp</th>
+                <th>Code Postal</th>
                 <th>Ville</th>
-                <th>Dateembauche</th>
-                <th>actions</th>
+                <th>Date d'embauche</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -26,8 +24,6 @@
                 <td>{{ visiteur.id }}</td>
                 <td>{{ visiteur.nom }}</td>
                 <td>{{ visiteur.prenom }}</td>
-                <td>{{ visiteur.login }}</td>
-                <td>{{ visiteur.mdp }}</td>
                 <td>{{ visiteur.adresse }}</td>
                 <td>{{ visiteur.cp }}</td>
                 <td>{{ visiteur.ville }}</td>
@@ -39,11 +35,11 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="10">no records found</td>
+                <td colspan="10">Pas de visiteur</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_visiteur_new') }}">Create new</a>
+    <a href="{{ path('app_visiteur_new') }}">Nouveau Visiteur</a>
 {% endblock %}

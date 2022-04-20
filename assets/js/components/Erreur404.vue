@@ -14,11 +14,8 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'erreur404',
-};
+<script src="../js/Erreur404.js">
 </script>
-<style scoped>
 
+<style scoped>
 </style>

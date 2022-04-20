@@ -4,7 +4,7 @@
     <nav class="navbar navbar-light sticky-top" style="background-color: #e3f2fd;">
       <ul class="nav"  >
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/comptes-rendus">Comptes-Rendus</a>
+          <a class="nav-link" aria-current="page" href="/rapportvisite/newCustom">Comptes-Rendus</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/visiteur">Visiteurs</a>
@@ -13,7 +13,7 @@
           <a class="nav-link" href="/praticien">Praticiens</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/medicament">Médicament</a>
+          <a class="nav-link" href="/medicament">Médicaments</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/deconnexion">Déconnexion</a>
@@ -25,10 +25,8 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'sommaire',
-};
+<script src="../js/Sommaire.js>
+
 </script>
 <style scoped>
 

@@ -41,28 +41,7 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'home',
-  data() {
-    return {
-      user:'',
-      password:'',
-
-    };
-  },
-  methods: {
-    isEmptyUser(){
-      return this.user === "";
-    },
-    isEmptyPassword(){
-      return this.password === "";
-    },
-    searchWithEnter() {
-    document.getElementById("buttonSubmit").click();
-    },
-  },
-};
+<script src="../js/Home.js">
 </script>
 
 <style scoped>

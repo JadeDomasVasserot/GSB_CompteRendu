@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="famille")
  * @ORM\Entity
  */
-class Famille
+class Famille 
 {
     /**
      * @var int
@@ -44,6 +44,8 @@ class Famille
 
         return $this;
     }
-
+    public function __toString() {
+        return $this->famlib;
+    }
 
 }

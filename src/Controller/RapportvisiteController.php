@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Medicament;
 use App\Entity\Rapportvisite;
 use App\Form\RapportvisiteType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -15,6 +16,13 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class RapportvisiteController extends AbstractController
 {
+    /**
+     * @Route("/newCustom", name="app_rapportvisite_newCustom", methods={"GET"})
+     */
+    public function newCustom(EntityManagerInterface $entityManager): Response
+    {
+        return $this->render('rapportvisite/rapportVisite.html.twig');
+    }
     /**
      * @Route("/", name="app_rapportvisite_index", methods={"GET"})
      */
