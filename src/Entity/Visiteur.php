@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Visiteur
  *
- * @ORM\Table(name="visiteur")
+ * @ORM\Table(name="visiteur", indexes={@ORM\Index(name="idLaboratoireFK", columns={"idLaboratoire"}), @ORM\Index(name="idSecteurFK", columns={"idSecteur"})})
  * @ORM\Entity
  */
 class Visiteur
@@ -76,6 +76,26 @@ class Visiteur
      * @ORM\Column(name="dateEmbauche", type="date", nullable=true)
      */
     private $dateembauche;
+
+    /**
+     * @var \Laboratoire
+     *
+     * @ORM\ManyToOne(targetEntity="Laboratoire")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idLaboratoire", referencedColumnName="id")
+     * })
+     */
+    private $idlaboratoire;
+
+    /**
+     * @var \Secteur
+     *
+     * @ORM\ManyToOne(targetEntity="Secteur")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idSecteur", referencedColumnName="id")
+     * })
+     */
+    private $idsecteur;
 
     public function getId(): ?string
     {
@@ -174,6 +194,30 @@ class Visiteur
     public function setDateembauche(?\DateTimeInterface $dateembauche): self
     {
         $this->dateembauche = $dateembauche;
+
+        return $this;
+    }
+
+    public function getIdlaboratoire(): ?Laboratoire
+    {
+        return $this->idlaboratoire;
+    }
+
+    public function setIdlaboratoire(?Laboratoire $idlaboratoire): self
+    {
+        $this->idlaboratoire = $idlaboratoire;
+
+        return $this;
+    }
+
+    public function getIdsecteur(): ?Secteur
+    {
+        return $this->idsecteur;
+    }
+
+    public function setIdsecteur(?Secteur $idsecteur): self
+    {
+        $this->idsecteur = $idsecteur;
 
         return $this;
     }

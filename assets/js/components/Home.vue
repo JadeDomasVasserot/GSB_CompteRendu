@@ -13,7 +13,12 @@
               class="form-control"
               id="inputUser"
               required
+              v-on:keyup.enter="searchWithEnter()"
+              v-model="user"
             />
+          <div v-if="isEmptyUser()">
+            Merci de rentrer un utilisateur
+          </div>
           </div>
           <div class="mb-3">
             <label for="inputPassword" class="form-label">Mot de passe*</label>
@@ -22,10 +27,15 @@
               class="form-control"
               id="inputPassword"
               name="inputPassword"
+              v-on:keyup.enter="searchWithEnter()"
+              v-model="password"
               required
             />
           </div>
-          <button type="submit" class="btn btn-primary mt-2">Connexion</button>
+          <div v-if="isEmptyPassword()">
+            Merci de rentrer un mot de passe
+          </div>
+          <button :disabled="isEmptyPassword()||isEmptyUser()" id="buttonSubmit" type="submit" class="btn btn-primary mt-2">Connexion</button>
         </form>
     </div>
   </div>
@@ -33,12 +43,24 @@
 
 <script>
 export default {
-  name: "home",
+  name: 'home',
   data() {
     return {
+      user:'',
+      password:'',
+
     };
   },
   methods: {
+    isEmptyUser(){
+      return this.user === "";
+    },
+    isEmptyPassword(){
+      return this.password === "";
+    },
+    searchWithEnter() {
+    document.getElementById("buttonSubmit").click();
+    },
   },
 };
 </script>

@@ -1,13 +1,15 @@
 <?php
 
 namespace App\Controller;
-
+use App\Entity\Visiteur;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
-
+/**
+ * @Route("/")
+ */
 class HomeController extends AbstractController
 {
     /**
@@ -24,16 +26,15 @@ class HomeController extends AbstractController
      */
     public function authentification(Request $request, SessionInterface $session)
     {
-        $login = $_POST["inputUser"];
-        $password = $_POST["inputPassword"];
-        var_dump($login, $password);
         try{
+            $login = $_POST["inputUser"];
+            $password = $_POST["inputPassword"];
             $user = $this->getDoctrine()
-                ->getRepository(User::class)
+                ->getRepository(Visiteur::class)
                 ->findOneBy([
                     'login' => $login,
                 ]);
-            if($user == $login && password_verify($password, $user->getPassword())){
+            if($user != null && $password =  $user->getMdp() && $login =  $user->getLogin()){
                 $id = $user->getId();
                 $nom = $user->getNom();
                 $prenom = $user->getPrenom();
@@ -49,33 +50,29 @@ class HomeController extends AbstractController
                     $session->set('cp',$cp);
                     $session->set('ville',$ville);
                     $session->set('dateEmbauche',$dateEmbauche);
-                    
+                  
                     $response = new Response();
-                    $response->setContent(json_encode(['Id'=> $id,
-                                                        'Name' => $name,
-                                                        'LastName' => $lastname,
-                                                        'Level' => $level,
-                                                        'roles' => $session->get('roles'),
-                                                        'margin' => $session->get('margin'),
-                                                        'email' => $session->get('email'),
+                    $response->setContent(json_encode(['id'=> $id,
+                                                        'nom' => $nom,
+                                                        'prenom' => $prenom,
+                                                        'adresse' => $adresse,
+                                                        'cp' => $cp,
+                                                        'ville' => $ville,
+                                                        'dateEmbauche' => $dateEmbauche,
                                                         ]));
 
-
                     $response->headers->set('Content-Type', 'application/json');
-
-                    return $response;
+                    return $this->render('Home/menu.html.twig');
                 }
-                else
-                {
-                    $response = new Response();
+            else
+            {
+                return $this->render('Home/erreurConnexion.html.twig');
 
-                    return $response->setStatusCode(500);
-                }
+            }
         }   
         catch (\Exception $err)
         {
-            $response = new Response();
-            return $response->setStatusCode(500);
+            return $this->render('Home/erreur404.html.twig');
         }
     }
      /**
@@ -87,5 +84,6 @@ class HomeController extends AbstractController
         {
             $session->clear();
         }
+        return $this->render('Home/deconnexion.html.twig');     
     }
 }

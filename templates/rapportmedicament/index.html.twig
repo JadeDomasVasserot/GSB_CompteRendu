@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rapportmedicament index{% endblock %}
+
+{% block body %}
+    <h1>Rapportmedicament index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Quantite</th>
+                <th>Estechantillon</th>
+                <th>Estdocumente</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for rapportmedicament in rapportmedicaments %}
+            <tr>
+                <td>{{ rapportmedicament.id }}</td>
+                <td>{{ rapportmedicament.quantite }}</td>
+                <td>{{ rapportmedicament.estechantillon ? 'Yes' : 'No' }}</td>
+                <td>{{ rapportmedicament.estdocumente ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('app_rapportmedicament_show', {'id': rapportmedicament.id}) }}">show</a>
+                    <a href="{{ path('app_rapportmedicament_edit', {'id': rapportmedicament.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_rapportmedicament_new') }}">Create new</a>
+{% endblock %}

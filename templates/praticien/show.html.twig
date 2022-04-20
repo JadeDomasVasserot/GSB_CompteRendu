@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Praticien{% endblock %}
+
+{% block body %}
+    <h1>Praticien</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ praticien.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ praticien.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ praticien.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ praticien.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Cp</th>
+                <td>{{ praticien.cp }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ praticien.ville }}</td>
+            </tr>
+            <tr>
+                <th>Dateembauche</th>
+                <td>{{ praticien.dateembauche ? praticien.dateembauche|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Coefnotoriete</th>
+                <td>{{ praticien.coefnotoriete }}</td>
+            </tr>
+            <tr>
+                <th>Lieuexercice</th>
+                <td>{{ praticien.lieuexercice }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_praticien_index') }}">back to list</a>
+
+    <a href="{{ path('app_praticien_edit', {'id': praticien.id}) }}">edit</a>
+
+    {{ include('praticien/_delete_form.html.twig') }}
+{% endblock %}
