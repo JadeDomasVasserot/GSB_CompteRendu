@@ -3,23 +3,25 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * Secteur
  *
  * @ORM\Table(name="secteur")
- * @ORM\Entity
+  * @ORM\Entity
+ * @ApiResource
  */
 class Secteur
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(name="idSecteur", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    private $idsecteur;
 
     /**
      * @var string
@@ -27,10 +29,9 @@ class Secteur
      * @ORM\Column(name="secLib", type="string", length=20, nullable=false)
      */
     private $seclib;
-
     public function getId(): ?int
     {
-        return $this->id;
+        return $this->idsecteur;
     }
 
     public function getSeclib(): ?string
@@ -47,6 +48,5 @@ class Secteur
     public function __toString() {
         return $this->seclib;
     }
-
 
 }

@@ -3,23 +3,25 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * Praticien
  *
  * @ORM\Table(name="praticien")
- * @ORM\Entity
+  * @ORM\Entity
+ * @ApiResource
  */
 class Praticien
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(name="idPraticien", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    private $idpraticien;
 
     /**
      * @var string
@@ -76,10 +78,9 @@ class Praticien
      * @ORM\Column(name="lieuExercice", type="string", length=20, nullable=false)
      */
     private $lieuexercice;
-
     public function getId(): ?int
     {
-        return $this->id;
+        return $this->idpraticien;
     }
 
     public function getNom(): ?string

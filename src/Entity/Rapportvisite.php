@@ -3,23 +3,25 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * Rapportvisite
  *
  * @ORM\Table(name="rapportvisite", indexes={@ORM\Index(name="idVisiteurFK_rapport", columns={"idVisiteur"}), @ORM\Index(name="idPraticienFK_rapport", columns={"idPraticien"}), @ORM\Index(name="idMotifFK_rapport", columns={"idMotif"})})
- * @ORM\Entity
+  * @ORM\Entity
+ * @ApiResource
  */
 class Rapportvisite
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(name="idRapportVisite", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    private $idrapportvisite;
 
     /**
      * @var \DateTime
@@ -47,7 +49,7 @@ class Rapportvisite
      *
      * @ORM\ManyToOne(targetEntity="Motif")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idMotif", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="idMotif", referencedColumnName="idMotif")
      * })
      */
     private $idmotif;
@@ -67,14 +69,13 @@ class Rapportvisite
      *
      * @ORM\ManyToOne(targetEntity="Praticien")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idPraticien", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="idPraticien", referencedColumnName="idPraticien")
      * })
      */
     private $idpraticien;
-
     public function getId(): ?int
     {
-        return $this->id;
+        return $this->idrapportvisite;
     }
 
     public function getDatevisite(): ?\DateTimeInterface
@@ -148,6 +149,5 @@ class Rapportvisite
 
         return $this;
     }
-
 
 }

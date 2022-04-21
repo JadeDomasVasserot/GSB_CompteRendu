@@ -3,23 +3,24 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use ApiPlatform\Core\Annotation\ApiResource;
 /**
  * Famille
  *
  * @ORM\Table(name="famille")
- * @ORM\Entity
+    * @ORM\Entity
+ * @ApiResource
  */
-class Famille 
+class Famille
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(name="idFamille", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    private $idfamille;
 
     /**
      * @var string
@@ -27,10 +28,9 @@ class Famille
      * @ORM\Column(name="famLib", type="string", length=25, nullable=false)
      */
     private $famlib;
-
     public function getId(): ?int
     {
-        return $this->id;
+        return $this->idfamille;
     }
 
     public function getFamlib(): ?string

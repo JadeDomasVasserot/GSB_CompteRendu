@@ -3,11 +3,11 @@ export default {
     name: "cr",
     data() {
       return {
-        medicaments : axios.get('http://127.0.0.1:8000/medicament/getListNom')
+        medicaments : axios.get('http://127.0.0.1:8000/api/medicaments.json')
         .then(response => {
             this.medicaments = response.data;
             console.log(response);
-            console.log(JSON.parse(response.data));
+            console.log(response.data.nomcommercial);
         })
       };
     },

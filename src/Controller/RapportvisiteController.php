@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Medicament;
+use App\Entity\Rapportmedicament;
 use App\Entity\Rapportvisite;
 use App\Form\RapportvisiteType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -43,6 +44,7 @@ class RapportvisiteController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $rapportvisite = new Rapportvisite();
+        $rapportMedicament = new Rapportmedicament();
         $form = $this->createForm(RapportvisiteType::class, $rapportvisite);
         $form->handleRequest($request);
 
@@ -55,6 +57,7 @@ class RapportvisiteController extends AbstractController
 
         return $this->renderForm('rapportvisite/new.html.twig', [
             'rapportvisite' => $rapportvisite,
+            'rapportMedicament' => $rapportMedicament,
             'form' => $form,
         ]);
     }

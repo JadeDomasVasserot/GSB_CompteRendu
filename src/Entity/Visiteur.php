@@ -3,12 +3,14 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * Visiteur
  *
  * @ORM\Table(name="visiteur", indexes={@ORM\Index(name="idLaboratoireFK", columns={"idLaboratoire"}), @ORM\Index(name="idSecteurFK", columns={"idSecteur"})})
- * @ORM\Entity
+  * @ORM\Entity
+ * @ApiResource
  */
 class Visiteur
 {
@@ -82,7 +84,7 @@ class Visiteur
      *
      * @ORM\ManyToOne(targetEntity="Laboratoire")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idLaboratoire", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="idLaboratoire", referencedColumnName="idLaboratoire")
      * })
      */
     private $idlaboratoire;
@@ -92,11 +94,10 @@ class Visiteur
      *
      * @ORM\ManyToOne(targetEntity="Secteur")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idSecteur", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="idSecteur", referencedColumnName="idSecteur")
      * })
      */
     private $idsecteur;
-
     public function getId(): ?string
     {
         return $this->id;

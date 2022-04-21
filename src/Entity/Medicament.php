@@ -3,23 +3,25 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * Medicament
  *
  * @ORM\Table(name="medicament", indexes={@ORM\Index(name="idFamileFK", columns={"idFamille"})})
- * @ORM\Entity
+  * @ORM\Entity
+ * @ApiResource
  */
 class Medicament
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(name="idMedicament", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    private $idmedicament;
 
     /**
      * @var string
@@ -61,14 +63,13 @@ class Medicament
      *
      * @ORM\ManyToOne(targetEntity="Famille")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idFamille", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="idFamille", referencedColumnName="idFamille")
      * })
      */
     private $idfamille;
-
     public function getId(): ?int
     {
-        return $this->id;
+        return $this->idmedicament;
     }
 
     public function getNomcommercial(): ?string
@@ -145,5 +146,6 @@ class Medicament
     public function __toString() {
         return $this->nomcommercial;
     }
+
 
 }

@@ -3,23 +3,25 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * Laboratoire
  *
  * @ORM\Table(name="laboratoire")
- * @ORM\Entity
+  * @ORM\Entity
+ * @ApiResource
  */
 class Laboratoire
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(name="idLaboratoire", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    private $idlaboratoire;
 
     /**
      * @var string
@@ -27,10 +29,9 @@ class Laboratoire
      * @ORM\Column(name="laboLib", type="string", length=20, nullable=false)
      */
     private $labolib;
-
     public function getId(): ?int
     {
-        return $this->id;
+        return $this->idlaboratoire;
     }
 
     public function getLabolib(): ?string
@@ -47,6 +48,5 @@ class Laboratoire
     public function __toString() {
         return $this->labolib;
     }
-
 
 }
