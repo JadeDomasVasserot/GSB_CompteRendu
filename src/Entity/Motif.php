@@ -29,7 +29,7 @@ class Motif
      * @ORM\Column(name="motifLib", type="string", length=25, nullable=false)
      */
     private $motiflib;
-    public function getId(): ?int
+    public function getIdMotif(): ?int
     {
         return $this->idmotif;
     }

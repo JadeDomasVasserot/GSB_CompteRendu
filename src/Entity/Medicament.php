@@ -67,7 +67,7 @@ class Medicament
      * })
      */
     private $idfamille;
-    public function getId(): ?int
+    public function getIdMedicament(): ?int
     {
         return $this->idmedicament;
     }

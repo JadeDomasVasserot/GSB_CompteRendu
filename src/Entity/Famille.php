@@ -28,7 +28,7 @@ class Famille
      * @ORM\Column(name="famLib", type="string", length=25, nullable=false)
      */
     private $famlib;
-    public function getId(): ?int
+    public function getIdFamille(): ?int
     {
         return $this->idfamille;
     }

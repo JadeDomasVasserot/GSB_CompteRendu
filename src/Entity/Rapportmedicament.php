@@ -63,7 +63,7 @@ class Rapportmedicament
      * })
      */
     private $idrapport;
-    public function getId(): ?int
+    public function getIdRapportmedi(): ?int
     {
         return $this->idrapportmedi;
     }

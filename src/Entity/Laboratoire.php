@@ -29,7 +29,7 @@ class Laboratoire
      * @ORM\Column(name="laboLib", type="string", length=20, nullable=false)
      */
     private $labolib;
-    public function getId(): ?int
+    public function getIdLaboratoire(): ?int
     {
         return $this->idlaboratoire;
     }

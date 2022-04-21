@@ -29,7 +29,7 @@ class Secteur
      * @ORM\Column(name="secLib", type="string", length=20, nullable=false)
      */
     private $seclib;
-    public function getId(): ?int
+    public function getIdSecteur(): ?int
     {
         return $this->idsecteur;
     }

@@ -73,7 +73,7 @@ class Rapportvisite
      * })
      */
     private $idpraticien;
-    public function getId(): ?int
+    public function getIdRapportvisite(): ?int
     {
         return $this->idrapportvisite;
     }

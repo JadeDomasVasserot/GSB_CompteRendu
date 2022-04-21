@@ -78,7 +78,7 @@ class Praticien
      * @ORM\Column(name="lieuExercice", type="string", length=20, nullable=false)
      */
     private $lieuexercice;
-    public function getId(): ?int
+    public function getIdPraticien(): ?int
     {
         return $this->idpraticien;
     }
